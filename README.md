@@ -12,6 +12,8 @@ Log in with username `guest` and `guest123` to get full access to the CLI. To en
 
 The `guest:guest123` login doesn't seem to work in the web interface, thankfully.
 
+However, if you enable ssh, logging in as the `debug` user with the same enable password as above will give you a root shell.
+
 ## Decrypting firmware
 
 QNAP firmware images are plain tarballs, but every file contained within is encrypted. Use `decfile.sh` to decrypt them.
