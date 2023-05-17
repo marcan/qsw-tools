@@ -45,7 +45,7 @@ domain name-server ipv4 192.168.98.1
 
 As long as the interface on the VLAN you want exists and is `no shutdown`, its traffic will go to the TAP interface that stuff is listening on, which will then get its IP from VLAN 1's IP.
 
-Note: With this trick, ping won't work, since that is handled at a lower layer and the IP does not match there.
+Note: With this trick, ping won't work, since that is handled at a lower layer and the IP does not match there. Also, VLAN 1 needs to be up for this to work, so assign it to at least one active port.
 
 ## Neutering the SSH backdoor
 
