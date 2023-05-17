@@ -61,6 +61,16 @@ passwd root
 
 This disables the debug account (since it lacks a password) and enables the real root account with your choice of password.
 
+For reference, these are the original contents of `/etc/pam.d/sshd`:
+
+```
+auth    optional        pam_unix.so nullok
+auth    sufficient      pam_debugauth.so
+auth    required        pam_deny.so
+```
+
+`pam_debugauth.so` implements the backdoor password.
+
 ## Other services
 
 You can expose various services by commenting out stuff in `/etc/firewall.user` and then running `fw3`.
