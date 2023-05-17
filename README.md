@@ -53,7 +53,7 @@ You'll probably want to replace the backdoor password with your own. Easiest is 
 
 ```bash
 chmod 600 /etc/shadow*
-chmod 644 /etc/passwd /etc/group /etc/pam.d/* /etc/pam.conf
+chmod 644 /etc/passwd* /etc/group /etc/pam.d/* /etc/pam.conf
 sed -i 's,^root.*,root:x:0:0:root:/root:/bin/ash,' /etc/passwd
 echo 'auth    required        pam_unix.so' > /etc/pam.d/sshd
 passwd root
