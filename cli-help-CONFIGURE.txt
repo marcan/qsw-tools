@@ -1,0 +1,714 @@
+Switch(config)# help
+
+CONFIGURE commands :
+
+  access-list <access list> { permit | deny } { any | host <ucast_addr> | <ucast
+_addr> <ip_mask> }[log]
+  access-list commit
+  access-list provision mode { consolidated | immediate }
+  alias <replacement string> <token to be replaced>
+  alias {interface | exec | configure} <alias-name> { command <max 10 tokens> | 
+token }
+  arp [vrf <vrf-name>] <ip address> <hardware address> {Vlan <vlan-id/vfi-id> [s
+witch switch-name] | <interface-type> <interface-id> | Linuxvlan <interface-name
+>| Cpu0 | <IP-interface-type> <IP-interface-number>}
+  arp [vrf <vrf-name>] timeout <seconds (30-86400)>
+  as-num <value(1-65535)> [vrf <vrf-name>]
+  audit-logging filename <filename>
+  audit-logging filesize <filesize(1024-1048576)>
+  audit-logging logsize-threshold <threshold in %(1-99)>
+  audit-logging reset
+  audit-logging { enable | disable}
+  authorized-manager ip-source <ip-address> [{<subnet-mask> | / <prefix-length(0
+-32)>}] [interface [interface-type <0/a-b, 0/c, ...>] [interface-type <0/a-b, 0/
+c, ...>] [<interface-type <a,b or a-b or a,b,c-d...>]] [vlan <a,b or a-b or a,b,
+c-d>] [cpu0] [service [snmp] [telnet] [http] [https] [ssh]]
+  auto-save trigger { enable | disable }
+  automatic-port-create { enable | disable }
+  base bridge-mode { dot1d-bridge | dot1q-vlan }
+  base-mac <mac_address>
+  channel-protocol { lacp | pagp }
+  class-map <class-map-id(1-65535)>
+  clear counters [ <interface-type> <interface-id> ]
+  clear garp counters {all | port <ifXtype> <ifnum> }
+  clear interfaces [ <interface-type> <interface-id> ] counters
+  clear ip arp [vrf <vrf-name>]
+  clear ip dhcp client statistics [interface {vlan <VlanId(1-4094)> |<interface-
+type> <interface-id>}]
+  clear ip domain cache
+  clear line vty {<line-number(2-9)> | all}
+  clear lldp counters
+  clear lldp table
+  clear logs
+  clear loop_protection status
+  clear mac-address-table { dynamic [interface {port-channel <port-channel-id (1
+-65535)> | <interface-type> <interface-id>}] [vlan <vlan_vfi_id>] | remote }
+  clear screen
+  clear spanning-tree [mst <instance-id>] counters [interface <interface-type> <
+interface-id>]
+  clear tcp statistics [vrf <vrf-name>]
+  clear vlan statistics [vlan <vlan-id/vfi_id>]
+  clock accuracy <value(32-254)>
+  clock class <value(0-255)>
+  clock hold-over mode
+  clock notification { [global-error] [time-source-change] [clock-class-change] 
+[clock-accuracy-change][clock-variance-change] [hold-over-change] }
+  clock set time <time-nanoseconds>
+  clock time source { atomic-clock | gps | ptp | ntp | internal-oscillator }
+  clock utc-offset <offset>
+  clock variance <value(0-255)>
+  cmdbuffs <user name> <no.of buffers (1-200)>
+  cpu rate limit queue <integer(1-65535)> minrate <integer(1-65535)> maxrate <in
+teger(1-65535)>
+  d-lag ( [{distribute-port <iftype> <ifnum> | distribute-port-list <iftype> <0/
+a, 0/b, 0/c-d,...>}] [system-identifier <aa:aa:aa:aa:aa:aa>] [system-priority <0
+-65535>] [periodic-sync-time <time in seconds (0-90)>] )
+  debug iss {enable | disable }([init-shut][management-trc][data-path-trc][cntrl
+-plane-trc][dump-trc][os-resource-trc][all-fail])
+  debug snmp {all | info | critical | debug | fail}
+  debug-logging <flash_url>
+  debug-logging { console | file | flash } [standby]
+  default exec-timeout <integer (1-18000)>
+  default ip address <ip-address> [ subnet-mask <subnet mask> ]      [ interface
+ <interface-type> <interface-id> ]
+  default ip address allocation protocol {bootp | rarp | dhcp}
+  default mode { manual | dynamic }
+  default redistribute-policy [vrf <vrf-name>] {permit | deny}
+  default restore-file <filename>
+  default restore-type { msr | csr }
+  default vlan id <count(1-4094)>
+  default-value save { enable | disable }
+  disable snmpagent
+  disable snmpsubagent
+  domain name <domain-name>
+  domain name-server {ipv4 <ucast_addr> | ipv6 <ip6_addr>}
+  dump core-file {<flash:filename>}
+  egress access-list mode { ip | mac }
+  enable password <password>
+  enable password level <integer (1-15)> <password>
+  enable snmpagent
+  enable snmpsubagent { master { ip4 <ipv4_address>} [port <number>] [context <c
+ontext-name>]}
+  enableuser <username>
+  end
+  exit
+  exituser <username>
+  export ospf [vrf <vrf-name>] {area-route|external-route} {rip|bgp}
+  feature telnet
+  force enable [vrf <vrf-name>]
+  help [ command ]
+  hostname <switchname>
+  hwconsole
+  incremental-save { enable | disable }
+  interface range { <interface-type> <slot/port-port> | vlan <vlan-id (1-4094)> 
+- <vlan-id (1-4094)>}
+  interface {cpu0 | vlan <vlan-id/vfi-id> [switch <switch-name>]| port-channel <
+port-channel-id> | tunnel <tunnel-id (0-128)> | <interface-type> <interface-id> 
+| linuxvlan <interface-name> | loopback <interface-id (0-100)> | ppp <1-128> | p
+w <interface-id (1-65535)> | ac <integer (1-65535)> | null0| s-channel <integer 
+(1-65535)>}
+  internal-lan <ilan-id (1-65535)> {add interface virtual <iface_list> | delete 
+interface virtual <iface_list>}
+  ip [vrf <vrf-name>] path mtu discover
+  ip access-group <access-list-number (1-65535)> {in | out}
+  ip access-list { standard <access-list-number (1-1000)> | extended <access-lis
+t-number (1001-65535)> }
+  ip aggregate-route <value (5-4095)>
+  ip arp [vrf <vrf-name>] max-retries <value (2-10)>
+  ip binding <mac-address> vlan <vlan-id (1-4094)> <ip address> interface <inter
+face-type> <interface-id> gateway <ip address>
+  ip default-distance [vrf <vrf-name>] {<distance (1-255)>}
+  ip default-ttl [vrf <vrf-name>] <value (1-255)>
+  ip dhcp snooping [ vlan < vlan-id (1-4094)>]
+  ip dhcp snooping verify mac-address
+  ip domain cache [ttl <integer(1-3600)>]
+  ip domain lookup
+  ip domain name <domain-name>
+  ip domain preferential-type {ipv4 | ipv6 | both}
+  ip domain resolver-mode sequential
+  ip domain retry <retry-count>
+  ip domain timeout <secs>
+  ip echo-reply [vrf <vrf-name>]
+  ip ecmp-across-protocol {enable | disable}
+  ip http port <port-number(1-65535)>
+  ip icmp redirects { host | subnet }
+  ip igmp querier-timeout <(60 - 600) seconds>
+  ip igmp snooping [vlan <vlanid/vfi_id>]
+  ip igmp snooping enhanced-mode { enable | disable }
+  ip igmp snooping filter
+  ip igmp snooping group-query-interval <(2 - 5) seconds>
+  ip igmp snooping mrouter-time-out <(60 - 600) seconds>
+  ip igmp snooping multicast-vlan {enable | disable}
+  ip igmp snooping port-purge-interval <(130 - 1225) seconds>
+  ip igmp snooping proxy
+  ip igmp snooping proxy-reporting
+  ip igmp snooping query-forward {all-ports | non-router-ports}
+  ip igmp snooping report-forward {all-ports | router-ports | non-edge-ports}
+  ip igmp snooping report-suppression-interval <(1 - 25) seconds>
+  ip igmp snooping retry-count <1 - 5>
+  ip igmp snooping send-query { enable | disable }
+  ip igmp snooping source-only learning age-timer <short(130-1225)>
+  ip igmp snooping sparse-mode { enable | disable }
+  ip igmp snooping vlan <vlanid (1-4094)> mrouter <ifXtype> <0/a-b, 0/c, ...>
+  ip igmp snooping vlan <vlanid(1-4094)> immediate-leave
+  ip mask-reply [vrf <vrf-name>]
+  ip maximum-routes { bgp | ospf | rip | static } {<integer (0-0xffffff)>}
+  ip name-server {ipv4 <ucast_addr> | ipv6 <ip6_addr>}
+  ip path mtu [vrf <vrf-name>] <dest ip> <tos(0-255)> <mtu(68-65535)>
+  ip proxyarp-subnetoption
+  ip rarp client request {interval <timeout (30-3000)> | retries <retries (2-10)
+>}
+  ip redirects [vrf <vrf-name>]
+  ip route [vrf <vrf-name>] <prefix> <mask> {<next-hop> | Vlan <vlan-id/vfi-id> 
+[switch <switch-name>] [<next-hop>] | <interface-type> <interface-id> [<next-hop
+>] | Linuxvlan <interface-name> | Cpu0 | tunnel <tunnel-id (0-128)> | <IP-interf
+ace-type> <IP-interface-number> | ppp <1-10> } [<distance (1-255)>] | [ private 
+] | null0 [ permanent ] [ name <nexthop-name>]
+  ip routing [vrf <vrf-name>]
+  ip source binding <mac-address> vlan <vlan-id (1-4094)> <ip-address> interface
+ <interface-type> <interface-id> [gateway <gateway-ip>]
+  ip unreachables [vrf <vrf-name>]
+  ipv4 route throttle limit <value>
+  lacp system-identifier <aa:aa:aa:aa:aa:aa>
+  lacp system-priority <0-65535>
+  layer4 switch <FilterNo (1-20)> protocol { any | tcp | udp | <Protocol No (1-2
+55)>} port { any | <PortNo (1-65535)>} interface { <interface type> <interface i
+d> }
+  line {console | vty | <line-number(0-16)>}[<ending-line-number(3-16)>]
+  lldp MessageFastTx <seconds(1-3600)>
+  lldp chassis-id-subtype { chassis-comp <string(255)> | if-alias | port-comp <s
+tring(255)> | mac-addr | nw-addr | if-name | local <string(255)> }
+  lldp holdtime-multiplier <value(2-10)>
+  lldp medFastStartRepeatCount <value (1-10)>
+  lldp notification-interval <seconds(5-3600)>
+  lldp reinitialization-delay <seconds(1-10)>
+  lldp transmit-interval <seconds(5-32768)>
+  lldp tx-delay <seconds(1-8192)>
+  lldp txCreditMax <value (1-10)>
+  lldp txFastInit <value (1-8)>
+  logging { buffered <size (1-200)> | console |facility {local0 | local1 | local
+2 | local3 | local4 | local5 | local6 | local7| } |severity [{ <level (0-7)> | a
+lerts | critical | debugging | emergencies | errors |informational | notificatio
+n | warnings }] | on }
+  logging-file <short(0-191)> <string(32)>
+  logging-filesize <integer(512-4194304)>
+  logging-server <short(0-191)> {ipv4 <ucast_addr> | ipv6 <ip6_addr> | <dns_host
+_name>} [ port <integer(1-65535)>] [{udp | tcp | beep}]
+  login authentication [{ radius | tacacs }] [local]
+  login authentication { default | <list-name> }
+  login block-for <seconds(30-600)> attempts <tries(1-10)>
+  loop_protection ifdown-condition <seconds(1-20)>
+  loop_protection interface <iftype> <ifnum> {enable | disable }
+  loop_protection shutdown-period <seconds(0-604800)>
+  loop_protection transmit-interval <seconds(1-10)>
+  mac access-group <access-list-number (1-65535)> {in | out}
+  mac access-list extended <access-list-number (1-65535)>
+  mac address-table static  mac_addr <aa:aa:aa:aa:aa:aa> vlan <vlan-id/vfi_id>  
+[interface ([<interface-type> <0/a-b,0/c,...>] [<interface-type> <0/a-b,0/c,...>
+] [port-channel <a,b,c-d>][pw <a,b,c-d>] [ac <a,b,c-d>])]
+  mac-address-table aging-time <10-630 seconds>
+  mac-address-table static  multicast <aa:aa:aa:aa:aa:aa> vlan <vlan-id/vfi_id> 
+ [recv-port <ifXtype> <ifnum>]  interface ([<interface-type> <0/a-b,0/c,...>] [<
+interface-type> <0/a-b,0/c,...>] [port-channel <a,b,c-d>][pw <a,b,c-d>] [ac <a,b
+,c-d>]) [forbidden-ports ([<interface-type> <0/a-b,0/c,...>] [<interface-type> <
+0/a-b,0/c,...>] [port-channel <a,b,c-d>][pw <a,b,c-d>][ac <a,b,c-d>])] [status {
+ permanent | deleteOnReset | deleteOnTimeout }]
+  mac-address-table static  unicast <aa:aa:aa:aa:aa:aa> vlan <vlan-id/vfi_id>  [
+recv-port <ifXtype> <ifnum>]  [interface ([<interface-type> <0/a-b,0/c,...>] [<i
+nterface-type> <0/a-b,0/c,...>] [port-channel <a,b,c-d>] [pw <a,b,c-d>] [ac <a,b
+, c-d>])] [status { permanent | deleteOnReset | deleteOnTimeout }]
+  mac-address-table static multicast <aa:aa:aa:aa:aa:aa>  [recv-port <interface-
+type> <interface-id>]  interface ([<interface-type> <0/a-b,0/c,...>]  [<interfac
+e-type> <0/a-b,0/c,...>] [port-channel <a,b,c-d>])  [status { permanent | delete
+OnReset | deleteOnTimeout }]
+  mac-address-table static unicast <aa:aa:aa:aa:aa:aa>  [recv-port <interface-ty
+pe> <interface-id>]  interface ([<interface-type> <0/a-b,0/c,...>]  [<interface-
+type> <0/a-b,0/c,...>] [port-channel <a,b,c-d>])  [status { permanent | deleteOn
+Reset | deleteOnTimeout }]
+  mac-learn-rate {<no of MAC entries(0-2147483647)>} [interval {<milliseconds(1-
+100000)>}]
+  mac-vlan
+  mail-server <short(0-191)> {ipv4 <ucast_addr> |ipv6 <ip6_addr> | <dns_host_nam
+e>} <string(50)> [user <user_name> password <password>]
+  map protocol  {ip | novell | netbios | appletalk | other <aa:aa or aa:aa:aa:aa
+:aa>}  {enet-v2 | snap | llcOther | snap8021H | snapOther}  protocols-group <Gro
+up id integer(0-2147483647)>
+  map subnet <ip-subnet-address> vlan <vlan-id/vfi_id>  [arp {suppress | allow}]
+ [mask <subnet-mask>]
+  maximum-paths [vrf <vrf-name>] <value (1-16)>
+  mc-lag ([system-identifier <aa:aa:aa:aa:aa:aa>] [system-priority <0-65535>] [p
+eriodic-sync-time <time in seconds (0-90)>] )
+  meter <meter-id(1-65535)>
+  mirror cpu-port {rx | tx | both} <interface-type> <interface-id>
+  mls qos
+  mls qos aggregate-policer <meter-id (1-65535)> <Bits per second (1-65535)> <No
+rmal burst bytes (1-65535)> exceed-action {drop | set-ip-dscp-transmit}
+  monitor session <session-id (1-20)> destination { interface  <interface-type> 
+<interface-id> | tunnel <tunnel-id> |remote vlan <integer(1-4094)> [interface <i
+nterface-type> <interface-id>]  [switch <string(32) >]} [ COMP ]
+  monitor session <session-id (1-20)> { source  {interface <interface-type> <int
+erface-id> [{rx|tx|both}] |  tunnel <tunnel-id> [{rx|tx|both}]|  vlan <vlan_rang
+e> [switch <context_name> ][{rx|tx|both}]  |mac-acl <acl-id> |ip-acl <acl-id>|re
+mote vlan <vlan-id>  [switch <context_name>]}} [ COMP ]
+  mst instance-port-mapping {enable | disable}
+  mvr
+  no access-list <access list>
+  no alias <alias>
+  no arp [vrf <vrf-name>] timeout
+  no arp [vrf <vrf-name>] {<ip address> | access-list <access-list-name>}
+  no authorized-manager ip-source <ip-address> [{<subnet-mask> | / <prefix-lengt
+h(0-32)>}]
+  no channel-protocol
+  no class-map <class-map-id(1-65535)>
+  no clock accuracy
+  no clock class
+  no clock hold-over mode
+  no clock notification { [global-error] [time-source-change] [clock-class-chang
+e] [clock-accuracy-change][clock-variance-change] [hold-over-change] }
+  no clock time source
+  no clock utc-offset
+  no clock variance
+  no d-lag ([{distribute-port | distribute-port-list}] [system-identifier] [syst
+em-priority] [periodic-sync-time])
+  no debug snmp
+  no debug-logging [standby]
+  no default exec-timeout
+  no domain name <domain-name>
+  no domain name-server {ipv4 <ucast_addr> | ipv6 <ip6_addr>}
+  no enable password [level (1-15)]
+  no entity physical-index <integer (1-2147483647)> [asset-id] [serial-number][a
+lias-name][uris]
+  no export ospf [vrf <vrf-name>] {area-route|external-route} {rip|bgp}
+  no feature telnet
+  no interface range vlan <vlan-id(1-4094)> - <vlan-id(2-4094)>
+  no interface { vlan <vlan-id/vfi-id> [switch <switch-name>] | port-channel <po
+rt-channel-id(1-65535)> | tunnel <tunnel-id (0-128)> | <interface-type> <interfa
+ce-id> | linuxvlan <interface-name> | loopback <interface-id (0-100)> | ppp <int
+eger (1-128)> | pw <integer (1-65535)> | ac <integer (1-65535)> | null0}
+  no internal-lan <ilan_id (1-65535)>
+  no ip [vrf <vrf-name>] path mtu discover
+  no ip access-group [<access-list-number (1-65535)>] {in | out}
+  no ip access-list { standard <access-list-number (1-1000)> | extended <access-
+list-number (1001-65535)> }
+  no ip aggregate-route
+  no ip arp [vrf <vrf-name>] max-retries
+  no ip binding <mac-address> vlan <vlan-id (1-4094)>
+  no ip default-ttl [vrf <vrf-name>]
+  no ip dhcp snooping [vlan <integer(1-4094)>]
+  no ip dhcp snooping verify mac-address
+  no ip domain cache [ttl]
+  no ip domain lookup
+  no ip domain name <domain-name>
+  no ip domain preferential-type
+  no ip domain resolver-mode
+  no ip domain retry
+  no ip domain timeout
+  no ip echo-reply [vrf <vrf-name>]
+  no ip http port
+  no ip icmp redirects
+  no ip igmp snooping [vlan <vlanid/vfi_id>]
+  no ip igmp snooping filter
+  no ip igmp snooping group-query-interval
+  no ip igmp snooping mrouter-time-out
+  no ip igmp snooping port-purge-interval
+  no ip igmp snooping proxy
+  no ip igmp snooping proxy-reporting
+  no ip igmp snooping report-forward
+  no ip igmp snooping report-suppression-interval
+  no ip igmp snooping retry-count
+  no ip igmp snooping source-only learning age-timer
+  no ip igmp snooping vlan <vlanid (1-4094)> mrouter <ifXtype> <0/a-b, 0/c, ...>
+
+  no ip igmp snooping vlan <vlanid(1-4094)> immediate-leave
+  no ip mask-reply [vrf <vrf-name>]
+  no ip maximum-routes { bgp | ospf | rip | static | isis }
+  no ip name-server {ipv4 <ucast_addr> | ipv6 <ip6_addr>}
+  no ip path mtu [vrf <vrf-name>] <dest ip> <tos>
+  no ip proxyarp-subnetoption
+  no ip rarp client request { interval|retries }
+  no ip redirects [vrf <vrf-name>]
+  no ip route [vrf <vrf-name>] <prefix> <mask> { <next-hop> | Vlan <vlan-id/vfi-
+id> [switch <switch-name>] [<next-hop>] | <interface-type> <interface-id> [<next
+-hop>] | Linuxvlan <interface-name> | Cpu0 | tunnel <tunnel-id (0-128)> | <IP-in
+terface-type> <IP-interface-number> | ppp <1-10> ] } [private] | null0 | [ perma
+nent ] [ name <nexthop-name> ]
+  no ip routing [vrf <vrf-name>]
+  no ip source binding <mac-address> vlan <vlan-id (1-4094)> <ip-address> interf
+ace <interface-type> <interface-id>
+  no ip unreachables [vrf <vrf-name>]
+  no lacp system-identifier
+  no lacp system-priority
+  no layer4 switch <FilterNo (1-20)>
+  no lldp holdtime-multiplier
+  no lldp notification-interval
+  no lldp reinitialization-delay
+  no lldp transmit-interval
+  no lldp tx-delay
+  no logging { buffered | console | facility | severity | on }
+  no logging-file <short(0-191)> <string(32)>
+  no logging-server <short(0-191)> {ipv4 <ucast_addr> |ipv6 <ip6_addr> | <dns_ho
+st_name>}
+  no login authentication
+  no login authentication { default | <list-name> }
+  no mac access-group [<access-list-number (1-65535)>] {in | out}
+  no mac access-list extended <short (1-65535)>
+  no mac address-table static <mac_addr> vlan <vlan-id(1-4094)>
+  no mac-address-table aging-time
+  no mac-address-table static multicast <aa:aa:aa:aa:aa:aa>  [recv-port <interfa
+ce-type> <interface-id>]
+  no mac-address-table static multicast <aa:aa:aa:aa:aa:aa> vlan <vlan-id/vfi_id
+>  [recv-port <ifXtype> <ifnum>]
+  no mac-address-table static unicast <aa:aa:aa:aa:aa:aa>  [recv-port <interface
+-type> <interface-id>]
+  no mac-address-table static unicast <aa:aa:aa:aa:aa:aa> vlan <vlan-id/vfi_id> 
+ [recv-port <ifXtype> <ifnum>]
+  no mac-learn-rate
+  no mac-vlan
+  no mail-server <short(0-191)> {ipv4 <ucast_addr> |ipv6 <ip6_addr> | <dns_host_
+name>}
+  no map protocol  {ip | novell | netbios | appletalk | other <aa:aa or aa:aa:aa
+:aa:aa>}  {enet-v2 | snap | llcOther | snap8021H | snapOther}
+  no map subnet <ip-subnet-address> [mask <subnet-mask>]
+  no maximum-paths [vrf <vrf-name>]
+  no mc-lag ([system-identifier] [system-priority] [periodic-sync-time])
+  no meter <meter-id(1-65535)>
+  no mirror cpu-port
+  no mls qos
+  no monitor session <session-id (1-20)> destination { interface  <interface-typ
+e> <interface-id> | tunnel <tunnel-id> |  remote vlan <integer(1-4094)> [interfa
+ce <interface-type> <interface-id>]  [switch <string(32) >]} [ COMP ]
+  no monitor session <session-id (1-20)> { source  {interface <interface-type> <
+interface-id> [{rx|tx|both}] |  tunnel <tunnel-id> [{rx|tx|both}]|  vlan <vlan_r
+ange> [switch <context_name> ][{rx|tx|both}]  |mac-acl <acl-id>|ip-acl <acl-id> 
+|remote vlan <vlan-id>  [switch <context_name>]}} [ COMP ]
+  no monitor session { session-range | local | session-id (1-20)}
+  no mvr
+  no packet receive index <integer> [ mask ]
+  no packet send index <integer>
+  no pagination
+  no policy-map <policy-map-id(1-65535)>
+  no port-channel defaulted-state-threshold
+  no port-channel error-recovery-threshold
+  no port-channel hw-failure recovery-threshold
+  no port-channel load-balance [ <port-channel-index(1-65535)> ]
+  no port-channel rec-threshold-exceed-action
+  no port-channel same-state recovery-threshold
+  no priority-map <priority-map-Id(1-65535)>
+  no protocol-vlan
+  no qos vlan-map <vlan-map-Id(1-65535)>
+  no qos-egress-dot1p-profile <profile-id(1-65535)>
+  no qos-egress-exp-dot1p-profile <profile-id(1-65535)>
+  no qos-egress-exp-profile <profile-id(1-65535)>
+  no qos-ingress-dot1p-profile <profile-id(1-65535)>
+  no qos-ingress-dscp-profile <profile-id(1-65535)>
+  no qos-ingress-exp-profile <profile-id(1-65535)>
+  no queue <integer(1-65535)> interface <iftype> <ifnum>
+  no queue-map { CLASS <integer(1-65535)> | regn-priority { vlanPri| ipTos | ipD
+scp | mplsExp | vlanDEI | internalPri } <integer(0-63)> } [interface <iftype> <i
+fnum>]
+  no queue-type <Q-Template-Id(1-65535)>
+  no redistribute-policy [vrf <vrf-name>] <DestIp> <DestRange>
+  no rmon alarm <number (1-65535)>
+  no rmon event <number (1-65535)>
+  no sched-hierarchy interface <iftype> <ifnum> hierarchy-level <integer(1-10)> 
+sched-id <integer(1-65535)>
+  no scheduler <Scheduler-Id(1-65535)> interface <iftype> <ifnum>
+  no security interface vlan
+  no security vlan-list <vlan-list>
+  no sender mail-id
+  no set front-panel port-count
+  no shape-template <Shape-Template-Id(1-65535)>
+  no shutdown dns
+  no shutdown garp
+  no shutdown lldp
+  no shutdown mc-lag
+  no shutdown port-channel
+  no shutdown qos
+  no shutdown snooping
+  no shutdown split-horizon
+  no shutdown switch-instance-shared-port
+  no shutdown ufd
+  no shutdown vlan
+  no smtp authentication
+  no snmp access <GroupName> {v1 | v2c | v3 {auth | noauth | priv}}
+  no snmp community index <CommunityIndex>
+  no snmp engineid
+  no snmp filter trap {name | oid} <name/oid>
+  no snmp filterprofile <profilename> <OIDTree>
+  no snmp group <GroupName> user <UserName>  security-model {v1 | v2c | v3 }
+  no snmp mibproxy name <ProxyMibName>
+  no snmp notify <NotifyName>
+  no snmp proxy name <ProxyName>
+  no snmp targetaddr <TargetAddressName>
+  no snmp targetparams <ParamName>
+  no snmp tcp enable
+  no snmp trap syslog-server-status
+  no snmp trap tcp enable
+  no snmp user <UserName> [EngineId <EngineID>]
+  no snmp view <ViewName> <OIDTree>
+  no snmp-server enable traps coldstart
+  no snmp-server enable traps snmp authentication
+  no snmp-server tcp-port
+  no snmp-server trap proxy-udp-port
+  no snmp-server trap tcp-port
+  no snmp-server trap udp-port
+  no spanning-tree
+  no spanning-tree [mst <instance-id(1-64)>] priority
+  no spanning-tree [mst <short(1-64)>] flush-indication-threshold
+  no spanning-tree compatibility
+  no spanning-tree flush-interval
+  no spanning-tree mode
+  no spanning-tree mst max-hops
+  no spanning-tree mst max-instance
+  no spanning-tree mst { forward-time | hello-time | max-age }
+  no spanning-tree mst {instance-id <instance-id(1-64)>} root
+  no spanning-tree pathcost dynamic [lag-speed]
+  no spanning-tree portfast bpduguard default
+  no spanning-tree portfast {bpdufilter default | default}
+  no spanning-tree transmit hold-count
+  no spanning-tree { forward-time | hello-time | max-age }
+  no subnet-vlan
+  no switch <name>
+  no switching-mode cut-through
+  no syslog localstorage
+  no syslog mail
+  no syslog profile
+  no syslog relay
+  no syslog relay-port
+  no system mtu
+  no traffic-share [vrf <vrf-name>]
+  no ufd group <integer(1-65535)> [groupname <string(32)>]
+  no unicast-mac learning limit
+  no user-defined TPID
+  no user-defined access-list <short (1-50)>
+  no username <user-name>
+  no vlan <vlan-id/vfi_id>
+  no wildcard {mac-adddress <mac_addr> | broadcast}
+  packet receive index <integer> {value | mask | port <port_list>}
+  packet send index <integer> port <port_list> [count <integer (0-65536)> [inter
+val <integer (1-65535)>]]
+  packet send index <integer> value
+  password max-life-time [<days (0-366)>]
+  password validate char [lowercase] [uppercase] [numbers] [symbols]
+  password validate lowercase [<count(0-20)>]
+  password validate numbers [<count(0-20)>]
+  password validate symbols [<count(0-20)>]
+  password validate uppercase [<count(0-20)>]
+  policy-map <policy-map-id(1-65535)>
+  port-channel defaulted-state-threshold <integer (0-20)>
+  port-channel error-recovery-threshold <integer(0-20)>
+  port-channel hw-failure recovery-threshold <integer (0-20)>
+  port-channel load-balance { src-mac | dest-mac | src-dest-mac | src-ip |  dest
+-ip | src-dest-ip | vlan-id | service-instance | mac-src-vid |  mac-dest-vid | m
+ac-src-dest-vid | dest-ip6 | src-ip6 | l3-protocol |  dest-l4-port | src-l4-port
+ }  [ <port-channel-index(1-65535)>]
+  port-channel rec-threshold-exceed-action {none | shutdown}
+  port-channel same-state recovery-threshold <integer (0-20)>
+  port-security violation {protect | restrict | shutdown}
+  priority-map <priority-map-Id(1-65535)>
+  protocol-vlan
+  qos interface <iftype> <ifnum> def-user-priority <integer(0-7)>
+  qos vlan-map <vlan-map-Id(1-65535)>
+  qos {enable | disable}
+  qos-egress-dot1p-profile <profile-id(1-65535)>
+  qos-egress-exp-dot1p-profile <profile-id(1-65535)>
+  qos-egress-exp-profile <profile-id(1-65535)>
+  qos-ingress-dot1p-profile <profile-id(1-65535)>
+  qos-ingress-dscp-profile <profile-id(1-65535)>
+  qos-ingress-exp-profile <profile-id(1-65535)>
+  queue <integer(1-65535)> interface <iftype> <ifnum> [qtype <integer(1-65535)>]
+ [scheduler <integer(1-65535)>] [weight <integer(0-1000)>] [priority <integer(0-
+15)>] [shaper <integer(0-65535)>] [queue-type {unicast | multicast }]
+  queue-map { CLASS <integer(1-65535)> | regn-priority { vlanPri <integer(0-15)>
+ | dot1P <integer(0-15)> <integer(0-1)> | ipTos <integer(0-7)> |ipDscp <integer(
+0-63)> | mplsExp <integer(0-7)> | vlanDEI <integer(0-1)> | internalPri <integer(
+0-15)> }} [interface <iftype> <ifnum>] queue-id <integer(1-65535)>
+  queue-type <Q-Template-Id(1-65535)>
+  redistribute-policy [vrf <vrf-name>] {permit|deny} <DestIp> <DestRange> {conne
+cted|static|rip|ospf|bgp} {rip|bgp|ospf|all}
+  rmon alarm <alarm-number> <mib-object-id (255)> 
+ <sample-interval-time (1-65535)> {absolute | delta } 
+ rising-threshold <value (0-2147483647)> [rising-event-number (1-65535)] 
+ falling-threshold <value (0-2147483647)> [falling-event-number (1-65535)] 
+ [owner <ownername (127)>]
+  rmon event <number (1-65535)> [description <event-description (127)>] [log] [o
+wner <ownername (127)>] [trap <community (127)>]
+  rmon2 {enable | disable}
+  rollback { enable | disable }
+  router-id <addr> [vrf <vrf-name>]
+  sched-hierarchy interface <iftype> <ifnum> hierarchy-level <integer(1-10)> sch
+ed-id <integer(1-65535)> {next-level-queue <integer(0-65535)> | next-level-sched
+uler <integer(0-65535)>} [priority <integer(0-15)>] [weight <integer(0-1000)>]
+  scheduler <integer(1-65535)> interface <iftype> <ifnum> [sched-algo {strict-pr
+iority | rr | wrr | wfq | strict-rr | strict-wrr | strict-wfq | deficit-rr}] [sh
+aper <integer(0-65535)>] [hierarchy-level <integer(0-10)>]
+  security interface vlan <vlan-id/vfi-id>
+  security vlan-list <vlan-list>
+  security-bridging {enable | disable }
+  sender mail-id <mail-id (100)>
+  set cli pagination {on | off}
+  set d-lag { enable | disable }
+  set debug-timestamp {enable | disable }
+  set entity physical-index <integer (1..2147483647)> {[asset-id<SnmpAdminString
+ (Size (1..32))>] [serial-number <SnmpAdminString (Size(1..32))>] [alias-name <S
+nmpAdminString (Size (1..32))>] [uris <OCTET-STRING(Size (1..255))>]}
+  set filtering-utility-criteria { enable | disable }
+  set front-panel port-count <ports>
+  set gmrp { enable | disable }
+  set gvrp { enable | disable }
+  set ip http {enable | disable}
+  set linkup-delay {enable | disable}
+  set lldp management-address {ipv4 <ucast_addr> | ipv6 <ip6_addr>}
+  set lldp tag status { enable | disable }
+  set lldp version {v1 | v2}
+  set lldp {enable | disable}
+  set loop_protection {enable | disable}
+  set mac-learning { enable | disable }
+  set mc-lag { enable | disable }
+  set meter-stats {enable | disable} [meter-id <integer(1-65535)>]
+  set mgmt-port routing {enable | disable}
+  set minimum password length <minimum-len>
+  set mirroring {enable | disable}
+  set performance-data-status {enable | disable}
+  set port gmrp <interface-type> <interface-id> { enable | disable }
+  set port gvrp <interface-type> <interface-id> { enable | disable }
+  set port gvrp { enable | disable } <interface-id>
+  set port-channel error-recovery-time <integer(0-3600)>
+  set port-channel independentmode { enable | disable }
+  set port-channel { enable | disable }
+  set redundancy hardware-type { shared | separate }
+  set redundancy hear-beat { internal | external }
+  set redundancy-type { hot | cold }
+  set rmon { enable | disable }
+  set split-horizon { enable | disable }
+  set sw-stats { enable | disable }
+  set switch maximum { RAM | CPU | flash } threshold <percentage (1-100)>
+  set switch power {min|max} threshold <volts (100-230)>
+  set switch temperature {min|max} threshold {<celsius(-15-30)/(35-40)>}
+  set switch-name <switchname>
+  set timer speed <timer-speed(1-1000)>
+  set ufd { enable | disable }
+  set vlan traffic-classes {enable | disable}
+  set vlan-queuing {enable | disable}
+  set vrf-route-leaking {enable | disable}
+  shape-template <integer(1-65535)> [cir <integer(1-10485760)>] [cbs <integer(0-
+10485760)>] [eir <integer(0-10485760)>] [ebs <integer(0-10485760)>]
+  shutdown dns
+  shutdown garp
+  shutdown lldp
+  shutdown mc-lag
+  shutdown port-channel
+  shutdown qos
+  shutdown snooping
+  shutdown spanning-tree
+  shutdown split-horizon
+  shutdown switch-instance-shared-port
+  shutdown ufd
+  shutdown vlan
+  smtp authentication {auth-login | auth-plain | cram-md5 | digest-md5}
+  snmp access <GroupName> {v1 | v2c | v3 {auth | noauth | priv}}  [read <ReadVie
+w | none>] [write <WriteView | none>]  [notify <NotifyView | none>] [{volatile |
+ nonvolatile}] [context <string(32)>]
+  snmp agent port <port>
+  snmp community index <CommunityIndex> name <CommunityName>  security <Security
+Name> [context <name>]  [{volatile | nonvolatile}] [transporttag <TransportTagId
+entifier | none>] [contextengineid <ContextEngineID>]
+  snmp engineid <EngineIdentifier>
+  snmp filter trap {name | oid} <name/oid>
+  snmp filterprofile <profile-name> <OIDTree> [mask <OIDMask>]  {included | excl
+uded} [{volatile | nonvolatile}]
+  snmp group <GroupName> user <UserName>  security-model {v1 | v2c | v3 } [{vola
+tile | nonvolatile}]
+  snmp mibproxy name <ProxyName> proxytype {read | write | inform | trap} mibid 
+<MibId> targetparamsin <TargetParam> targetout <TargetOut> [storagetype {volatil
+e | nonvolatile}]
+  snmp notify <NotifyName> tag <TagName> type {Trap | Inform}  [{volatile | nonv
+olatile}]
+  snmp proxy name <ProxyName> proxytype {read | write | inform | trap} contexten
+gineid <engine ID> targetparamsin <TargetParam> targetout <TargetOut> [contextna
+me <ProxyContextName>] [storagetype {volatile | nonvolatile}]
+  snmp targetaddr <TargetAddressName> param <ParamName>  {<ucast_addr> | <IP6Add
+ress> | <dns_host_name>} [timeout <Seconds(1-1500)>]  [retries <RetryCount(1-3)>
+] [taglist <TagIdentifier | none>]  [{volatile | nonvolatile}] [port <integer (1
+-65535)>]
+  snmp targetparams <ParamName> user <UserName>  security-model {v1 | v2c | v3 {
+auth | noauth | priv}}  message-processing {v1 | v2c | v3} [{volatile | nonvolat
+ile}]  [filterprofile-name <profilename> [filter-storagetype {volatile | nonvola
+tile}]]
+  snmp tcp enable
+  snmp trap syslog-server-status
+  snmp trap tcp enable
+  snmp user <UserName> [auth {md5 | sha | sha256 | sha384 | sha512} <passwd>  [p
+riv {{{DES | TDES | AES_CFB128 | AES_CFB192 | AES_CFB256 | AESCTR | AESCTR192 | 
+AESCTR256} <passwd>} | None}]] [{volatile | nonvolatile}] [EngineId <EngineID>]
+  snmp view <ViewName> <OIDTree> [mask <OIDMask>] {included | excluded}  [{volat
+ile | nonvolatile}]
+  snmp-server enable traps coldstart
+  snmp-server enable traps snmp authentication
+  snmp-server tcp-port <port>
+  snmp-server trap proxy-udp-port <port>
+  snmp-server trap tcp-port <port>
+  snmp-server trap udp-port <port>
+  snmpget mib {name | oid} <value> [short]
+  snmpgetnext mib {name | oid} <value> [short]
+  snmpset mib {name | oid} <name/oid> value <string> [short]  [<datatype - i, o,
+ x, s>]
+  snmpwalk mib {name | oid} <value> [count <integer(1-100)>] [short]
+  snooping leave-process config-level {vlan | port}
+  snooping multicast-forwarding-mode {ip [{data-plane-driven | control-plane-dri
+ven}]| mac}
+  snooping report-process config-level {non-router-ports | all-ports}
+  sntp
+  spanning-tree
+  spanning-tree [mst <instance-id>] priority <value(0-61440)>
+  spanning-tree [mst <short(1-64)>] flush-indication-threshold <short(0-65535)>
+  spanning-tree compatibility {stp | rst | mst}
+  spanning-tree flush-interval <centi-seconds (0-500)>
+  spanning-tree forwarddelay optimization alternate-role {enabled | disabled}
+  spanning-tree mode {mst | rst}
+  spanning-tree mst configuration
+  spanning-tree mst max-hops <value(6-40)>
+  spanning-tree mst max-instance <short(1-64)>
+  spanning-tree mst {forward-time <seconds(4-30)> | hello-time <seconds(1-2)> | 
+max-age <seconds(6-40)>}
+  spanning-tree mst {instance-id <instance-id(1-64)>} root {primary | secondary}
+
+  spanning-tree pathcost dynamic [lag-speed]
+  spanning-tree portfast bpduguard default
+  spanning-tree portfast {bpdufilter default | default}
+  spanning-tree portfast {disable | trunk}
+  spanning-tree transmit hold-count <value (1-10)>
+  spanning-tree {forward-time <seconds(4-30)> | hello-time <seconds(1-2)> | max-
+age <seconds(6-40)>}
+  subnet-vlan
+  switch <name>
+  switching-mode cut-through
+  syslog filename-one <string(32)>
+  syslog filename-three <string(32)>
+  syslog filename-two <string(32)>
+  syslog localstorage
+  syslog mail
+  syslog profile {raw | cooked}
+  syslog relay
+  syslog relay transport type {udp | tcp}
+  syslog relay-port <integer(0-65535)>
+  system contact <contact info>
+  system location <location name>
+  system mtu <frame-size(46-9216)>
+  tcp max retries {<integer(1-12)>} [vrf <vrf-name>]
+  traffic-separation control {system_default | user_defined | none}
+  traffic-share [vrf <vrf-name>]
+  ufd group <integer(1-65535)> [groupname <string(32)>]
+  unicast-mac learning limit <limit value(0-4294967295)>
+  user-defined TPID <size(1-65535)>
+  user-defined access-list <access-list-number (1-50)>
+  username <username> [ password [ 0 | 7 | LINE ] <passwd>] [privilege <1-15>] [
+confirm-password [ 0 | 7 | LINE ] <passwd>] [status { enable | disable }]
+  vlan <vlan-id/vfi_id>
+  vlan learning mode {ivl | svl | hybrid}
+  vrf unq-mac { enable | disable }
+  web-session timeout <integer (1-300)>
+  wildcard {mac-adddress <mac_addr> | broadcast} interface   ([<interface-type> 
+<0/a-b, 0/c, ...>]   [<interface-type> <0/a-b, 0/c, ...>] [port-channel <a,b,c-d
+>]   [pw <a,b,c-d>] [ac <a,b,c-d>])
+

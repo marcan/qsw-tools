@@ -1,0 +1,522 @@
+Switch# help
+
+EXEC commands :
+
+  LuaCli
+  archive download-sw /overwrite [ /reload ] { tftp://server/filename | sftp://<
+user-name>:<pass-word>@server/filename | flash:filename}
+  clear config[default-config-restore <filename>]
+  clear counters [ <interface-type> <interface-id> ]
+  clear interfaces [ <interface-type> <interface-id> ] counters
+  clear ip dhcp client statistics [interface {vlan <VlanId(1-4094)> |<interface-
+type> <interface-id>}]
+  clear iss counters [bgp] [ospf] [rip] [rip6] [ospf3] [ipv4] [ipv6]
+  clear lacp counters [<port-channel(1-65535)>]
+  clear line vty {<line-number(2-9)> | all}
+  clear logs
+  clear mc-lag counters
+  clear meter-stats [meter-id <integer(1-65535)>]
+  clear screen
+  clear spanning-tree detected protocols [{interface <interface-type> <interface
+-id> | switch <context_name>}]
+  clear tcp statistics [vrf <vrf-name>]
+  cli console
+  clock set hh:mm:ss <day (1-31)> {<month (01-12)> | january | february | march 
+| april | may | june | july | august | september | october | november | december
+} <year (2000 - 2037)>
+  config-restore {flash | remote ip-addr <ip-address> file <filename> | norestor
+e}
+  configure terminal
+  copy logs {tftp://server/filename | sftp://<user-name>:<pass-word>@server/file
+name} [standby]
+  copy running-config startup-config
+  copy startup-config {flash: filename | tftp://server/filename | sftp://<user-n
+ame>:<pass-word>@server/filename}
+  copy { tftp://server/filename startup-config | sftp://<user-name>:<pass-word>@
+server/filename startup-config | flash: filename startup-config }
+  copy { tftp://server/filename | sftp://<user-name>:<pass-word>@server/filename
+ | flash: filename}{ tftp://server/filename | sftp://<user-name>:<pass-word>@ser
+ver/filename | flash: filename | filename}
+  debug clear internal-debug-logs
+  debug dns {init-shutdown | ctrl | query | response | cache | failure | all}
+  debug etherchannel {[all] [detail] [error] [event] [idb]}
+  debug garp { global | [{protocol | gmrp | gvrp | redundancy}  [initshut] [mgmt
+] [data] [ctpl] [dump] [os] [failall] [buffer] [all]] [switch <context_name>] }[
+{ <short (0-7)> | alerts | critical | debugging | emergencies | errors | informa
+tional | notification | warnings }]
+  debug interface [track][enetpktdump][ippktdump][arppktdump][trcerror][os][fail
+all][buffer][all][{ <short (0-7)> | alerts | critical | debugging | emergencies 
+| errors | informational | notification | warnings }]
+  debug ip arp [vrf <name>] { all | init | data | control | dump | os | mgmt | f
+ailure | buffer }
+  debug ip binding database ([entry][exit][debug][fail])[{ <short (0-7)> | alert
+s | critical | debugging | emergencies | errors | informational | notification |
+ warnings }]
+  debug ip binding database all [{ <short (0-7)> | alerts | critical | debugging
+ | emergencies | errors | informational | notification | warnings }]
+  debug ip dhcp client { all | event | packets | errors | bind }
+  debug ip dhcp snooping {[entry][exit][debug][fail] | all}
+  debug ip igmp snooping ([init][resources][tmr][src][grp][qry]  [redundancy][pk
+t][fwd][vlan][entry][exit][mgmt][np][buffer][icch][all][all-failure]) [switch <s
+witch_name>]
+  debug ip igmp snooping trace ([data-path][ctrl-path][Rx][Tx][all]) [switch <sw
+itch_name>]
+  debug lacp [ { init-shutdown | mgmt | data | events | packet | os | failall | 
+buffer | all } ]
+  debug lldp { init-shut | mgmt | data-path | ctrl | pkt-dump | resource | all-f
+ail | buf | critical | redundancy | tlv { mandatory-tlv | port-descr | sys-name 
+| sys-descr | sys-capab | mgmt-addr | port-vlan | ppvlan | vlan-name | proto-id 
+| mac-phy | pwr-mdi | lagg | max-frame | vid-digest | mgmt-vid | med-capability 
+| network-policy | inventory-management | location-id | ex-power-mdi | all} | al
+l}
+  debug loop_protection
+  debug np dump {tx | rx | both } {short | long}
+  debug np module { cfa | vlan | bfd | bcmx | brg | ecfm | elps | erps | mpls | 
+mau | ipmc | ip6 |                   eoam | ether | diffserv | dsmon | fmn | pvr
+st | qos | iss | la | mlds | rmon |                   srcmv | pnac | igmp | mbs 
+| mrp | mstp | np| ofc | pbb | ptp | rstp | rport |                   red | sync
+e | tac | vcm | poe | ppp | mld | rm | rbr | cpss | acl | lion | pfc }          
+[ severity { <short (1-8)> | emergencies | alerts | critical | errors | warnings
+          | notification | informational | debugging } ]
+  debug qos {initshut | mgmt | ctrl | dump | os | failall | buffer}
+  debug rmon2 {[func-entry][func-exit][critical][mem-fail][debug] | [ALL]}
+  debug show internal-debug-logs [ searching-keyword ]
+  debug show mempool-stats [ pool-id <integer(1-65535)> ]
+  debug snmp {all | info | critical | debug | fail}
+  debug sntp ([init-shut] [mgmt] [data-path] [control] [resource] [all-fail] [bu
+ff])
+  debug sntp all
+  debug spanning-tree ( [errors] [init-shut] [management] [memory] [bpdu]
+ [events] [timer] [port-info-state-machine] [port-receive-state-machine]
+ [port-role-selection-state-machine] [role-transition-state-machine]
+ [state-transition-state-machine] [protocol-migration-state-machine]
+ [topology-change-state-machine] [port-transmit-state-machine] 
+ [bridge-detection-state-machine] [pseudoInfo-state-machine] [redundancy] [sem-v
+ariables]) [switch <context_name>] [{ <level (0-7)> | alerts | critical | debugg
+ing | emergencies | errors | informational | notification | warnings }]
+  debug spanning-tree { global | all [switch <context_name>]}
+  debug vlan ([fwd] [priority] [redundancy] [all-module]  [initshut] [mgmt] [dat
+a] [ctpl] [dump] [os] [failall] [buffer] [all-debug]  [switch <context_name>])
+  debug vlan global
+  disable [<privilege(0-15)>]
+  dump { mem <integer(1-0xffffffff)> } [len {<integer(1-256)>}]
+  dump { task | que | sem } name [<string(4)>]
+  egress bridge counterset0 interface <interface-type> <interface-id> vlan [ <in
+teger(1-4094)>] tc <integer(0-7)> counterset1 interface <interface-type> <interf
+ace-id> vlan [ <integer(1-4094)>] tc <integer(0-7)>
+  enable [<privilege (0-15)>]
+  end
+  erase { startup-config | nvram: | flash:filename}
+  exit
+  firmware upgrade { tftp://server/filename | sftp://<user_name>:<pass_word>@<ip
+_addr>/<string_filename>} {flash:normal | flash:fallback}
+  help [ command ]
+  ip dhcp client arp-check timer <integer (1-20)>
+  ip dhcp client discovery timer <integer (1-300)>
+  ip dhcp client fast-access
+  ip dhcp client idle timer <integer (1-300)>
+  ip igmp snooping clear counters [Vlan <vlanid/vfi_id>]
+  listuser
+  lock
+  logout
+  no cli console
+  no debug dns {init-shutdown | ctrl | query | response | cache | failure | all}
+
+  no debug etherchannel {[all] [detail] [error] [event] [idb]}
+  no debug garp { global | [{protocol | gmrp | garp | redundancy}  [initshut] [m
+gmt] [data] [ctpl] [dump] [os] [failall] [buffer] [all]] [switch <context_name>]
+ }
+  no debug interface [track] [enetpktdump] [ippktdump] [arppktdump] [trcerror] [
+os] [failall] [buffer] [all]
+  no debug ip arp [vrf <name>] { all | init | data | control | dump | os | mgmt 
+| failure | buffer }
+  no debug ip binding database [{ [entry][exit][debug][fail] | all }]
+  no debug ip dhcp client { all | event | packets | errors | bind }
+  no debug ip dhcp snooping
+  no debug ip igmp snooping ([init][resources][tmr][src][grp][qry][redundancy]  
+  [pkt][fwd][vlan][entry][exit][mgmt][np][buffer][icch][all][all-failure]) [swit
+ch <switch_name>]
+  no debug ip igmp snooping trace ([data-path][ctrl-path][Rx][Tx][all]) [switch 
+<switch_name>]
+  no debug lacp [ { init-shutdown | mgmt | data | events | packet | os | failall
+ | buffer | all } ]
+  no debug lldp { all | init-shut | mgmt | data-path | ctrl | pkt-dump | resourc
+e | all-fail | buf | critical | redundancy | tlv { all | mandatory-tlv | port-de
+scr | sys-name | sys-descr | sys-capab | mgmt-addr | port-vlan | ppvlan | vlan-n
+ame | proto-id | mac-phy | pwr-mdi | lagg | max-frame | vid-digest | mgmt-vid | 
+med-capability | network-policy | inventory-management | location-id | ex-power-
+mdi}}
+  no debug loop_protection
+  no debug np dump {tx | rx | both }
+  no debug np module { cfa | vlan | bfd | bcmx | brg | ecfm | elps | erps | mpls
+ | mau | ipmc | ip6 | eoam | ether | diffserv | dsmon | fmn | pvrst | qos | iss 
+| la | mlds | rmon |                   srcmv | pnac | igmp | mbs | mrp | mstp | 
+np| ofc | pbb | ptp | rstp | rport |                   red | synce | tac | vcm |
+ poe | ppp | mld | rm | rbr | cpss | acl | lion | pfc }
+  no debug qos {initshut | mgmt | ctrl | dump | os | failall | buffer}
+  no debug rmon2 {[func-entry][func-exit][critical][mem-fail][debug] | [ALL]}
+  no debug snmp
+  no debug sntp ([init-shut] [mgmt] [data-path] [control] [resource] [all-fail] 
+[buff])
+  no debug sntp all
+  no debug spanning-tree {global | {all | errors | init-shut | management | memo
+ry | bpdu 
+ |events | timer | state-machine {port-info | port-receive
+ | port-role-selection | role-transition
+ | state-transition | protocol-migration
+ | topology-change | port-transmit
+ | bridge-detection | pseudoInfo} redundancy | sem-variables} [switch <context_n
+ame>]}
+  no debug vlan ([fwd] [priority] [redundancy] [all-module]  [initshut] [mgmt] [
+data] [ctpl] [dump] [os] [failall] [buffer] [all-debug]  [switch <context_name>]
+)
+  no debug vlan global
+  no ip dhcp client arp-check timer
+  no ip dhcp client discovery timer
+  no ip dhcp client fast-access
+  no ip dhcp client idle timer
+  ping [ ip ] {<IpAddress> | <dns_host_name> } [data (0-65535)] [df-bit] [{repea
+t|count} <packet_count (1-10)>] [size <packet_size (36-2080)>][source <ip-addres
+s>] [timeout <time_out (1-100)>] [validate]
+  ping vrf <vrf-name> [ ip ] {<IpAddress> | <dns_host_name> } [data (0-65535)] [
+df-bit] [{repeat|count} <packet_count (1-10)>] [size <packet_size (36-2080)>][so
+urce <ip-address>] [timeout <time_out (1-100)>] [validate]
+  readarpfromHardware ip <ip_addr>
+  readregister { <register value in hex. Eg 0xfe25> | all }
+  release dhcp { cpu0 | vlan <vlan-id (1-4094)> | <interface-type> <interface-id
+> }
+  reload
+  renew dhcp { cpu0 | vlan <vlan-id (1-4094)> | <interface-type> <interface-id> 
+}
+  run script [flash: | slot0: | volatile:] <script file> [<output file>]
+  show access-lists [{ip <access-list-number (1-65535)> | mac <access-list-numbe
+r (1-65535)> | user-defined <access-list-number (1-65535)> |<access-list-number 
+(1-65535)> }]
+  show aliases
+  show arp spoofing [interface <ifXtype> <ifnum>]
+  show audit [filestat]
+  show authorized-managers [ip-source <ip-address>]
+  show cascade-port-mapping {interface-index <integer(1-240)> | all}
+  show class-map [<class-map-id(1-65535)>]
+  show class-to-priority-map <group-name(31)>
+  show clock
+  show clock properties
+  show config log
+  show cpu rate limit
+  show cpu-mirroring
+  show custom-param
+  show d-lag [<port-channel(1-65535)>] {consolidated | detail}
+  show d-lag [<port-channel(1-65535)>] {counters}
+  show debug-logging [standby]
+  show debugging
+  show dot1d mac-address-table [address <aa:aa:aa:aa:aa:aa>] [interface <interfa
+ce-type> <interface-id>]
+  show dot1d mac-address-table static multicast [address <aa:aa:aa:aa:aa:aa>] [i
+nterface <interface-type> <interface-id>]
+  show dot1d mac-address-table static unicast [address <aa:aa:aa:aa:aa:aa>] [int
+erface <interface-type> <interface-id>]
+  show egress access-list mode
+  show egress bridge counters
+  show email alerts
+  show entity alias-mapping [index <integer (1..2147483647)>]
+  show entity logical [index <integer (1..2147483647)>]
+  show entity lp-mapping
+  show entity phy-containment [index <integer (1..2147483647)>]
+  show entity physical [index <integer (1..2147483647)>]
+  show env {all | temperature | fan | RAM | CPU | flash | power}
+  show etherchannel
+  show etherchannel <channel-group-number(1-65535)> { detail | load-balance | po
+rt | port-channel | summary | protocol }
+  show etherchannel { detail | load-balance | port | port-channel | summary | pr
+otocol | mc-lag | iccl }
+  show flow-control [ interface [{ port-channel <integer (1-65535)>| <interface-
+type> <ifnum> }] ]
+  show forward-all [ switch <context_name>]
+  show forward-unregistered [ switch <context_name>]
+  show garp timer [{ port <interface-type> <interface-id> | switch <context_name
+>}]
+  show gmrp statistics [{ port <interface-type> <interface-id> }]
+  show gvrp statistics [{ port <interface-type> <interface-id> }]
+  show history
+  show http server status
+  show hw ecmp table range min <range (0-1000)> max <range (0-1000)>
+  show iftype protocol deny table [switch <context_name>]
+  show interfaces [<interface-type> <interface-id> ] etherchannel
+  show interfaces [{ [<interface-type> <interface-id>] [{ description | storm-co
+ntrol | flowcontrol | capabilities | status | port-security-state | rate-limit }
+] | {vlan <vlan-id/vfi-id> [{switch <switch-name>}]} | tunnel <tunnel-id (0-128)
+> | null0}]
+  show interfaces bridge port-type [{ port-channel <integer (1-65535)> | <interf
+ace-type> <ifnum> | pw <integer (1-65535)> | s-channel <integer (1-65535)>}]
+  show interfaces mtu [{ Vlan <vlan-id/vfi-id> [switch <switch-name>] | port-cha
+nnel <port-channel-id (1-65535)> | <interface-type> <interface-id> }]
+  show interfaces port-role
+  show interfaces statistics
+  show interfaces {counters | HC-counters} [{ ppp <ppp-id(1-4094)> | <interface-
+type> <interface-id> | vlan <vlan_vfi_id> [switch <switch-name>] | tunnel <tunne
+l-id(0-128)>}]
+  show internal-lan <iface_list>
+  show ip arp [vrf <vrf-name>][ { Vlan <vlan-id/vfi-id> [switch <switch-name>] |
+ <interface-type> <interface-id> | <ipiftype> <ifnum> | <ip-address> | <mac-addr
+ess> | summary | information | statistics }]
+  show ip binding [vlan <vlan-id (1-4094)>] {[ static | dhcp | ppp ]} [switch <s
+witch_name>]
+  show ip binding counters [{[vlan <short (1-4094)>] | global | [ switch <switch
+-name>] }]
+  show ip default-distance [vrf <vrf-name>]
+  show ip dhcp client client-id
+  show ip dhcp client fast-access
+  show ip dhcp client option
+  show ip dhcp client stats
+  show ip dhcp snooping [vlan <vlan-id (1-4094)>] [switch <context name>]
+  show ip dhcp snooping globals [switch <Context Name>]
+  show ip dns
+  show ip dns cache [detail]
+  show ip dns domain name
+  show ip dns name-server
+  show ip dns statistics
+  show ip ecmp-across-protocols
+  show ip igmp snooping [Vlan <vlan-id/vfi-id>] [switch <switch_name>]
+  show ip igmp snooping blocked-router [Vlan <vlan-id/vfi-id>] [switch <switch_n
+ame>]
+  show ip igmp snooping forwarding-database [{[[Vlan <vlan_vfi_id>][{static | dy
+namic}]] | [summary]}] [switch <string (32)>]
+  show ip igmp snooping globals [switch <switch_name>]
+  show ip igmp snooping groups [{[[Vlan <vlan_vfi_id>  [Group <mcast_addr>]] [{s
+tatic | dynamic}]  [switch <string (32)>]] | [summary]}]
+  show ip igmp snooping mrouter [Vlan <vlan-id/vfi-id>] [detail]  [switch <switc
+h_name>]
+  show ip igmp snooping multicast-receivers [Vlan <vlan-id/vfi-id> [Group <Addre
+ss>]]  [switch <switch_name>]
+  show ip igmp snooping multicast-vlan [switch <switch_name>]
+  show ip igmp snooping port-cfg [{interface <interface-type> <interface-id> [In
+nerVlanId vlan-id(1-4094)] | switch <switch_name>}]
+  show ip igmp snooping statistics [Vlan <vlan-id/vfi-id>] [switch <switch_name>
+]
+  show ip information [vrf <vrf-name>]
+  show ip interface [vrf <vrf-name>] [{[Vlan <vlan-id(1-4094)> [switch <switch-n
+ame>]] | [<interface-type> <interface-id>] | [loopback <loopback-id(0-100)>] | n
+ull0}] [vlan-counters]
+  show ip interface all
+  show ip maximum-routes
+  show ip pmtu [vrf <vrf-name>]
+  show ip protocols [vrf <vrf-name>]
+  show ip proxy-arp [vrf <vrf-name>]
+  show ip rarp
+  show ip route [vrf <vrf-name>] [ { <ip-address> [<mask>] | bgp | connected | o
+spf | rip | static | summary | details | isis | failed} ]
+  show ip source binding [<ip-address>] [<mac-address>] [{ dhcp-snooping | stati
+c }] [ interface <interface-type> <interface-id> ] [ vlan <vlan-id (1-4094)> ] [
+switch <switch_name>]
+  show ip traffic [vrf <vrf-name>] [ interface { Vlan<vlan-id/vfi-id> [switch <s
+witch-name>] | tunnel <tunnel-id (1-128)> |<interface-type> <interface-id> | Lin
+uxvlan <interface-name>| <IP-interface-type> <IP-interface-number> } ] [hc]
+  show ip verify source [ interface <interface-type> <interface-id> ]
+  show iss-config-restore status
+  show iss-health status
+  show l3vlan interfaces counters [vlan <vlan_vfi_id> [switch <switch-name>]]
+  show lacp [<port-channel(1-65535)>] { counters | neighbor [detail] }
+  show layer4 switch { all | <FilterNo (1-20)> }
+  show line {console | vty <line>}
+  show linkup-delay [ interface <iftype> <ifnum> ]
+  show lldp
+  show lldp errors
+  show lldp interface [<interface-type> <interface-id>] [mac-address <mac_addr>]
+
+  show lldp local {[<interface-type> <interface-id> [mac-address <mac_addr>]] | 
+[mgmt-addr]}
+  show lldp neighbors [chassis-id <string(255)> port-id <string(255)>] [<interfa
+ce-type> <interface-id>][detail]
+  show lldp peers [chassis-id <string(255)> port-id <string(255)>] <interface-ty
+pe> <interface-id>[[mac-address <mac_addr>] [detail]]
+  show lldp statistics
+  show lldp traffic [<iftype> <ifnum> [mac-address <mac_addr>]]
+  show logging
+  show logging-file
+  show logging-server
+  show loop_protection [{ interface <iftype> <ifnum> | all }] enabled
+  show loop_protection details
+  show loop_protection summary
+  show mac force forwarding [vlan <short (1-4094)>]
+  show mac-address-table [vlan <vlan-range>] [address <aa:aa:aa:aa:aa:aa>] [{int
+erface <interface-type> <interface-id> | switch <context_name>}]
+  show mac-address-table aging-time [ switch <context_name>]
+  show mac-address-table count [vlan <vlan-id/vfi-id>] [ switch <context_name>]
+  show mac-address-table dynamic multicast [vlan <vlan-range>] [address <aa:aa:a
+a:aa:aa:aa>] [{interface <interface-type> <interface-id> | switch <context_name>
+}]
+  show mac-address-table dynamic unicast [vlan <vlan-range>] [address <aa:aa:aa:
+aa:aa:aa>] [{interface <interface-type> <interface-id> | switch <context_name>}]
+
+  show mac-address-table static multicast [vlan <vlan-range>] [address <aa:aa:aa
+:aa:aa:aa>] [{interface <interface-type> <interface-id> | switch <context_name>}
+]
+  show mac-address-table static unicast [vlan <vlan-range>] [address <aa:aa:aa:a
+a:aa:aa>] [{interface <interface-type> <interface-id> | switch <context_name>}]
+  show mac-learn-rate
+  show mac-vlan [{interface <interface-type> <interface-id> | switch <string(32)
+>}]
+  show mail-server
+  show mc-lag [<port-channel(1-65535)>] {consolidated | detail | counters}
+  show meter [<meter-id(1-65535)>]
+  show mib name <Object OID. eg 1.3.6.1.6>
+  show mib oid <object name. eg ifMainRowStatus>
+  show minimum password length
+  show monitor records
+  show monitor { session <session-id (1-20)> | local | range <session-list> | al
+l } [detail]
+  show nvram
+  show packet receive index <integer(0-4)>
+  show packet send index <integer(0-4)>
+  show password max-life-time
+  show password validate rules
+  show policy-map [<meter-id(1-65535)>]
+  show port-isolation [ingress-port <ifXtype> <ifnum>]
+  show port-security [{interface <interface-type> <interface-id> | switch <conte
+xt_name> }]
+  show priority-map [<priority-map-id(1-65535)>]
+  show privilege
+  show protocol-vlan [ switch <context_name>]
+  show qos def-user-priority [interface <iftype> <ifnum>]
+  show qos dscp-to-queue map
+  show qos global info
+  show qos meter-stats [<Meter-Id(1-65535)>]
+  show qos pbit-preference-over-Dscp [interface <iftype> <ifnum> ]
+  show qos pcp decoding port <ifXtype> <ifnum> packet-type { Ethernet | IP | MPL
+S}
+  show qos pcp encoding port <ifXtype> <ifnum> packet-type { Ethernet | IP | MPL
+S}
+  show qos pcp queue-mapping details
+  show qos pcp-sel-row [{interface <iftype> <ifnum>} {packet-type {Ethernet | IP
+ | MPLS}}]
+  show qos queue-stats [interface <iftype> <ifnum>]
+  show qos vlan-map [<vlan-map-id(1-65535)>]
+  show qos-dot1p-profile {ingress | egress} {<profile-id(1-65535)> | all}
+  show qos-dot1p-profile-map {interface <ifXtype> <ifxnum> | all}
+  show qos-dscp-profile ingress {<profile-id(1-65535)> | all}
+  show qos-exp-dot1p-profile egress {<profile-id(1-65535)> | all}
+  show qos-exp-dot1p-profile-map {interface <iftype> <ifnum> | all}
+  show qos-exp-profile {ingress | egress} {<<profile-id(1-65535)>> | all}
+  show qos-exp-profile-map {interface <iftype> <ifnum> | all}
+  show qos-ing-dscp-profile-map {interface <iftype> <ifnum> | all}
+  show queue [interface <iftype> <ifnum>]
+  show queue-map [interface <iftype> <ifnum>]
+  show queue-template [<queue-template-Id(1-65535)>]
+  show redistribute information [vrf <vrf-name>]
+  show redistribute-policy [vrf <vrf-name>]
+  show rmon [statistics [<stats-index (1-65535)>]] [alarms] [events] [history [h
+istory-index(1-65535)] [overview]]
+  show running-config [{ syslog | dhcp | dhcp6 |dvmrp | stp [switch <context_nam
+e> ] | ecfm [switch <context_name>] | la |pnac | igs | mlds | vlan <vlan-id/vfi-
+id> [ switch<context_name> ] | interface { <interfacetype><interfacenum> | vlan 
+<vlan-id/vfi-id> } |ospf| isis | rip | bgp | ipv6 | rip6 | ssh | ssl |acl | ip |
+ pim | pimv6 | vrrp | snmp | radius |rmon | rm | mbsm | ospf3 | mpls | igmp | eo
+am |fm | igmp-proxy | elmi | route-map | tacacs |tac | sntp | switch <context_na
+me> | nat| elps | erps | [switch <context_name>] |entity-mib | http | poe | pbb 
+[switch<context_name>] |cn [switch <context_name>] |dcbx | ptp |clkiwf | mld | m
+sdp | msdpv6 | lldp |firewall | system | ospfte | ipsourceguard | tlm| rbridge |
+ l2dhcsnp | mef | network-clock | vrf <vrf-name>| hs | bfd | rsna [<rsna-id>] | 
+ppp | dsmon | ofcl | wss                     | ufd | split-horizon | hb | icch |
+ fsb                     | qosxtd  }]
+  show sched-hierarchy [interface <iftype> <ifnum>]
+  show scheduler [interface <iftype> <ifnum>]
+  show security interface vlan
+  show security vlan
+  show shape-template [<shape-template-Id(1-65535)>]
+  show snmp
+  show snmp agentx information
+  show snmp agentx statistics
+  show snmp community
+  show snmp engineID
+  show snmp filter
+  show snmp group
+  show snmp group access
+  show snmp inform statistics
+  show snmp mibproxy
+  show snmp notif
+  show snmp proxy
+  show snmp targetaddr
+  show snmp targetparam
+  show snmp tcp
+  show snmp user
+  show snmp viewtree
+  show snmp-server proxy-udp-port
+  show snmp-server traps
+  show sntp broadcast-mode status
+  show sntp clock
+  show sntp manycast-mode status
+  show sntp multicast-mode status
+  show sntp statistics
+  show sntp status
+  show sntp unicast-mode status
+  show spanning-tree [interface <interface-type> <interface-id>] layer2-gateway-
+port [switch <context_name>]
+  show spanning-tree [{ summary | blockedports | pathcost method }] [ switch <co
+ntext_name>]
+  show spanning-tree active [detail] [ switch <context_name>]
+  show spanning-tree bridge [{ address | forward-time | hello-time | id |max-age
+ | protocol | priority | detail }] [ switch <context_name>]
+  show spanning-tree detail [ switch <context_name>]
+  show spanning-tree interface <ifXtype> <ifnum> bpduguard
+  show spanning-tree interface <ifXtype> <ifnum> inconsistency
+  show spanning-tree interface <interface-type> <interface-id> [{ cost | priorit
+y | portfast | rootcost | restricted-role | restricted-tcn | state | stats | det
+ail }]
+  show spanning-tree mst [<instance-id(1-64 | 4094)>] [detail] [ switch <context
+_name>]
+  show spanning-tree mst [<instance-id(1-64 | 4094)>] interface <interface-type>
+ <interface-id> [{ stats | hello-time | detail }]
+  show spanning-tree mst configuration [ switch <context_name>]
+  show spanning-tree performance-data [interface <interface-type> <interface-id>
+ [instance <instance-id>]]
+  show spanning-tree root [{ address | cost | forward-time | id | max-age | port
+ | priority | detail }] [ switch <context_name>]
+  show split-horizon [{ interface <iftype> <ifnum> | all }]
+  show subnet-vlan mapping [{interface <interface-type> <interface-id> | switch 
+<string(32)>}]
+  show switching-mode
+  show syslog file-name
+  show syslog information
+  show syslog localstorage
+  show syslog mail
+  show syslog profile
+  show syslog relay transport type
+  show syslog relay-port
+  show syslog role
+  show system acknowledgement
+  show system-information
+  show system-specific port-id
+  show tcp connections [vrf <vrf-name>]
+  show tcp listeners [vrf <vrf-name>]
+  show tcp retransmission details [vrf <vrf-name>]
+  show tcp statistics [vrf <vrf-name>]
+  show telnet server
+  show udp connections [vrf <vrf-name>]
+  show udp statistics [vrf <vrf-name>]
+  show ufd [{group <integer(1-65535)> | brief}]
+  show unicast port-security [address <aa:aa:aa:aa:aa:aa>] [{interface <interfac
+e-type> <interface-id> | switch <context_name>}]
+  show user-defined TPID [switch <context_name>]
+  show users
+  show vlan [brief | id <vlan-range> | summary | ascending] [ switch <context_na
+me>]
+  show vlan device capabilities [ switch <context_name>]
+  show vlan device info [ switch <context_name>]
+  show vlan learning params [vlan <vlan-range>] [ switch <string(32)>]
+  show vlan port config [{port <interface-type> <interface-id> | switch <context
+_name>}]
+  show vlan protocols-group [ switch <context_name>]
+  show vlan statistics [vlan <vlan-range>] [ switch <context_name>]
+  show vlan traffic-classes [{port <interface-type> <interface-id> | switch <con
+text_name>}]
+  show wildcard {mac-address <mac_addr> | broadcast}  [switch <context_name>]
+  sleep <seconds(1-65535)>
+  snmpwalk mib {name | oid} <value> [count <integer(1-100)>] [short]
+  ssh {enable | disable}
+  sw-ratelimit {<integer(0-500)>}
+  trace cli-to-mib { enable | disable}
+  traceroute {<ip-address> | ipv6 <prefix>} [vrf <vrf-name>] [min-ttl <value (1-
+99)>] [max-ttl <value (1-99)>]
+  write { flash:filename | startup-config | tftp://server/filename | sftp://<use
+r-name>:<pass-word>@server/filename}
+  writeregister <register value in hex. Eg 0xfe25>

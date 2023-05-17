@@ -1,0 +1,52 @@
+Switch#    ?           
+
+Clear                               internal debug logs 
+Disable                             debug option for LOOP PROTECTION module 
+Display                             internal debug logs 
+Displays                            LOOP PROTECTION global configuration /
+                                    global configuration 
+LuaCli                              Goes to Lua Cli shell 
+archive                             Downloads image using TFTP/SFTP
+clear                               Clears MC-LAG periodic and event update
+                                    counters 
+cli                                 Configures CLI
+clock                               Manages the system clock
+config-restore                      Configures the restore option
+configure                           Configures the terminal
+copy                                Copies the configuration or system logs
+debug                               Configures trace for LOOP PROTECTION 
+disable                             Disables a feature
+dump                                Display memory content from the given
+                                    memory location 
+egress                              
+enable                              Enables a feature
+end                                 Exit to the privileged Exec (#) mode 
+erase                               Clears the contents of the startup
+                                    configuration 
+exit                                Exit from EXEC mode
+firmware                            Upgrades firmware
+help                                Displays help for the command 
+ip                                  Configures IP related protocol 
+listuser                            List the user,mode and groups 
+lock                                Lock the console
+logout                              Log out from EXEC mode
+no                                  Disables the configuration , deletes the
+                                    entry and resets to default value 
+ping                                Sends echo messages 
+readarpfromHardware                 reads the arp for the given IP 
+readregister                        reads the value of the register from the
+                                    hardware 
+release                             Performs release operation 
+reload                              Restarts the switch
+renew                               Performs renew operation 
+run                                 Runs CLI commands
+show                                Display system information 
+sleep                               Delays the ISS CLI thread for configured
+                                    seconds
+snmpwalk                            Performs walk opertion for mib object 
+ssh                                 Enable or disable SSH service 
+sw-ratelimit                        Configures Sw RateLimiting
+trace                               Configures trace function 
+traceroute                          Traces route to the Destination IP 
+write                               Writes the running-config to a flash file
+writeregister                       writes in the specidied register 

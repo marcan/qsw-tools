@@ -1,0 +1,145 @@
+Switch(config)#    ?   
+
+Clear                               LOOP PROTECTION status / reset to default
+                                    value 
+Set                                 LOOP PROTECTION configuration 
+access-list                         Configures access list related information
+alias                               Configures alias name 
+arp                                 Configures ARP related information 
+as-num                              Configures autonomous system number 
+audit-logging                       Configures audit-logging feature 
+authorized-manager                  Configures IP authorized manager 
+auto-save                           Configures auto save trigger function 
+automatic-port-create               Configures automatic port create feature 
+base                                Configures base bridge mode 
+base-mac                            Configures base MAC address for switch 
+channel-protocol                    Configures Link Aggregation 
+class-map                           Configures class map related information 
+clear                               Clears the specified parameters
+clock                               Configures clock related information
+cmdbuffs                            Configures syslog buffers related
+                                    information 
+cpu                                 cpu rate configuration for a CPU 
+d-lag                               Configures Active-Active DLAG related
+                                    parameters 
+debug                               Configures trace for the protocol 
+debug-logging                       Configures debug logs 
+default                             Configures default information 
+default-value                       Configures default-value save function 
+disable                             Disables a feature 
+domain                              Domain related information
+dump                                Configures dump information 
+egress                              Egress PCL configuration 
+enable                              Enables a feature 
+enableuser                          Releases blocked user
+end                                 Exit to the privileged Exec (#) mode 
+exit                                Exit to the privileged Exec mode 
+exituser                            Releases active user
+export                              Configures redistribution details 
+feature                             Configures a feature 
+force                               forcefully reconfigures the as-num and
+                                    router-id 
+help                                Displays help for the command 
+hostname                            Configures the switch name 
+hwconsole                           enables to access hardware console 
+incremental-save                    Configures incremental save and restore
+                                    feature 
+interface                           Configures interface related information 
+internal-lan                        Configures I-LAN interface 
+ip                                  Configure ip access-list related
+                                    information
+ipv4                                Configures IPv4 related information 
+lacp                                Configures LACP related parameters 
+layer4                              Configures layer 4 related details 
+line                                Configures line information
+lldp                                Configures LLDP related information 
+logging                             Configures Syslog server related
+                                    information 
+logging-file                        Configures logging file related
+                                    information 
+logging-server                      Configures logging server related
+                                    information 
+login                               Configures login details 
+mac                                 Configures MAC address table 
+mac-address-table                   Configures MAC address table 
+mac-learn-rate                      Configures MAC learning rate 
+mac-vlan                            Enables MAC based VLAN 
+mail-server                         Configures mail server related information
+map                                 Configures mapping entry 
+maximum-paths                       Configures maximum number of multipaths 
+mc-lag                              Configures Active-Active MC-LAG related
+                                    parameters 
+meter                               Configures meter related information 
+mirror                              Configures the mirroring parameters 
+mls                                 Configures multilayer security enabled QoS
+monitor                             Configures monitoring details 
+mst                                 Multiple Spanning Tree configuration 
+mvr                                 Enables multicast VLAN feature 
+no                                  Deletes the entry
+packet                              packet send or receive 
+password                            configures password related options
+policy-map                          Configures policy map related information 
+port-channel                        Configures port channel related parameters
+port-security                       Configure port-security related
+                                    information 
+priority-map                        Configures priority map related
+                                    information 
+protocol-vlan                       Enables protocol-VLAN based classification
+qos                                 Configures QoS related information 
+qos-egress-dot1p-profile            Configures QOS Egress DOT1P Profile 
+qos-egress-exp-dot1p-profile        Configures Egress MPLS Experimental DOT1P
+                                    Profile
+qos-egress-exp-profile              Configures Egress MPLS Experimental
+                                    profile 
+qos-ingress-dot1p-profile           Configures QOS Ingress DOT1P Profile 
+qos-ingress-dscp-profile            Configures DSCP Ingress profile
+qos-ingress-exp-profile             Configures QOS Ingress Exp Profile 
+queue                               Configures queue related information 
+queue-map                           Configures queue map related information 
+queue-type                          Configures queue template type related
+                                    information 
+redistribute-policy                 Configures redistribution policy
+                                    information 
+rmon                                Configures RMON related parameters
+rmon2                               Configures RMONv2 related details 
+rollback                            Configures rollback function 
+router-id                           Configures router ID related information 
+sched-hierarchy                     Configures scheduler hierarchy related
+                                    information 
+scheduler                           Configures scheduler related information 
+security                            Configures Security details 
+security-bridging                   Configures Security details for Bridged
+                                    Traffic 
+sender                              Configures sender related information 
+set                                 Configuration 
+shape-template                      Configures shape template related
+                                    information 
+shutdown                            Shuts down the feature 
+smtp                                Configures smtp related information 
+snmp                                Configures SNMP related parameters 
+snmp-server                         Configures SNMP server related details 
+snmpget                             Gets the mib object 
+snmpgetnext                         Gets the next mib object 
+snmpset                             Sets the mib object 
+snmpwalk                            Performs walk opertion for mib object 
+snooping                            Configures snooping related parameters 
+sntp                                Enters SNTP configuration mode
+spanning-tree                       Configures spanning tree related protocol 
+subnet-vlan                         Enables subnet-VLAN based classification 
+switch                              Configures switch related details
+switching-mode                      Switching-mode related configuration 
+syslog                              Configures syslog related information 
+system                              Configures system information 
+tcp                                 Configures Transmission Control Protocol
+traffic-separation                  Configures traffic separation mode 
+traffic-share                       Configures load sharing of IP packets 
+ufd                                 Configures UFD related parameters 
+unicast-mac                         Configuring unicast MAC information 
+user-defined                        Configures user defined access list
+                                    related information
+username                            Configures username related configuration
+vlan                                Configures VLAN related information 
+vrf                                 VRF related information
+web-session                         configure value for web session 
+wildcard                            Configures wildcard VLAN entry 
+
