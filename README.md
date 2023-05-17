@@ -17,3 +17,33 @@ However, if you enable ssh, logging in as the `debug` user with the same enable 
 ## Decrypting firmware
 
 QNAP firmware images are plain tarballs, but every file contained within is encrypted. Use `decfile.sh` to decrypt them.
+
+## Using a management VLAN other than 1
+
+The CLI allows you to set IPs on more than one VLAN, but the firmware stupidly only sets the IP on the Linux TAP interface for interface "vlan1":
+
+```c
+iVar1 = strcmp(local_10,"vlan1");
+if (iVar1 == 0) {
+    cpsstap_update_ip(*param_1,param_1[1]);
+}
+```
+
+... but you can cheat. Just leave vlan 1 unused, but set the IP you want on it. Then create an IP interface for the VLAN you actually want:
+
+```
+interface vlan 1
+ip address  192.168.98.16 255.255.255.0
+no shutdown
+!
+interface vlan 98
+no shutdown
+!
+ip route 0.0.0.0  0.0.0.0 192.168.98.1
+domain name-server ipv4 192.168.98.1
+```
+
+As long as the interface on the VLAN you want exists and is `no shutdown`, its traffic will go to the TAP interface that stuff is listening on, which will then get its IP from VLAN 1's IP.
+
+Note: With this trick, ping won't work, since that is handled at a lower layer and the IP does not match there.
+
