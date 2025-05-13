@@ -107,3 +107,5 @@ You can also use the `DELETE` verb to delete users (but `admin` and `guest` cann
 The web UI seems to be limited to the `admin` user, but gets full privileges to the API with it. The CLI username `admin` is hardcoded to be downgraded to privilege 0 even though it's 15, that's why it only gets a crippled shell. Unfortunately, it's also the only user that gets to use the `username` config commands, so there is no way to manage users from the CLI.
 
 If you've done all of the above, the switch should be reasonably secure (root SSH with your own password only, local CLI requires login with your own password as all users).
+
+**Update**: As of firmware 1.3.2.1458627 all of the above still applies, except the ability to create users through the web API POST has been removed (passwords can still be changed). The user database can still be manually edited through root SSH access (`/usr/local/bin/users`), but it is a semi-binary file. For now, the file can be copied from another switch that already has an extra privilege level 15 user. Reverse engineering the password hashing and checksum stuff TBD.
