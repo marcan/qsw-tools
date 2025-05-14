@@ -45,7 +45,7 @@ domain name-server ipv4 192.168.98.1
 
 As long as the interface on the VLAN you want exists and is `no shutdown`, its traffic will go to the TAP interface that stuff is listening on, which will then get its IP from VLAN 1's IP.
 
-Note: With this trick, ping won't work, since that is handled at a lower layer and the IP does not match there. Also, VLAN 1 needs to be up for this to work, so assign it to at least one active port.
+Note: With this trick, ping won't work, since that is handled at a lower layer and the IP does not match there. Also, VLAN 1 needs to be up for this to work, so assign it to at least one active port. NTP also won't work, as that seems to be handled at the internal (userspace) TCP/IP layer like ping.
 
 ## Neutering the SSH backdoor
 
@@ -109,3 +109,5 @@ The web UI seems to be limited to the `admin` user, but gets full privileges to 
 If you've done all of the above, the switch should be reasonably secure (root SSH with your own password only, local CLI requires login with your own password as all users).
 
 **Update**: As of firmware 1.3.2.1458627 all of the above still applies, except the ability to create users through the web API POST has been removed (passwords can still be changed). The user database can still be manually edited through root SSH access (`/usr/local/bin/users`), but it is a semi-binary file. For now, the file can be copied from another switch that already has an extra privilege level 15 user. Reverse engineering the password hashing and checksum stuff TBD.
+
+Note: Firmware updates seem to reset the `/etc/firewall.user` file (which disables SSH and any other services listed there, requiring re-enable of SSH via serial console and then editing to restore) but do not reset any of the other hacks.
